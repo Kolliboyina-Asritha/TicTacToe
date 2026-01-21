@@ -9,10 +9,9 @@ public class TicTacToe {
 
         Scanner sc = new Scanner(System.in);
 
-        // Instructions
         printInstructions();
 
-        // Player names
+
         String playerX = "Asritha"; // fixed name
         System.out.print("Enter Player 2 name (O): ");
         String playerO = sc.nextLine();
@@ -50,11 +49,11 @@ public class TicTacToe {
 
                 if (checkWinner(currentPlayer)) {
                     printBoard();
-                    System.out.println("\n🎉 " + currentName + " wins!");
+                    System.out.println("\n " + currentName + " wins!");
                     gameOver = true;
                 } else if (isBoardFull()) {
                     printBoard();
-                    System.out.println("\n🤝 It's a draw!");
+                    System.out.println("\n It's a draw!");
                     gameOver = true;
                 } else {
                     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
@@ -71,7 +70,6 @@ public class TicTacToe {
         sc.close();
     }
 
-    // Initialize board
     static void initializeBoard() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -80,7 +78,7 @@ public class TicTacToe {
         }
     }
 
-    // Print board with top border
+
     static void printBoard() {
         System.out.println("\nCurrent Board:");
         System.out.print("   ");
@@ -104,14 +102,13 @@ public class TicTacToe {
         }
     }
 
-    // Validate move
+
     static boolean isValidMove(int row, int col) {
         return row >= 0 && row < SIZE &&
                col >= 0 && col < SIZE &&
                board[row][col] == ' ';
     }
 
-    // Check winner
     static boolean checkWinner(char player) {
 
         // Rows
@@ -126,7 +123,7 @@ public class TicTacToe {
             if (win) return true;
         }
 
-        // Columns
+   
         for (int j = 0; j < SIZE; j++) {
             boolean win = true;
             for (int i = 0; i < SIZE; i++) {
@@ -138,7 +135,7 @@ public class TicTacToe {
             if (win) return true;
         }
 
-        // Main diagonal
+      
         boolean win = true;
         for (int i = 0; i < SIZE; i++) {
             if (board[i][i] != player) {
@@ -148,7 +145,7 @@ public class TicTacToe {
         }
         if (win) return true;
 
-        // Anti-diagonal
+      
         win = true;
         for (int i = 0; i < SIZE; i++) {
             if (board[i][SIZE - 1 - i] != player) {
@@ -159,7 +156,7 @@ public class TicTacToe {
         return win;
     }
 
-    // Check draw
+ 
     static boolean isBoardFull() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -170,10 +167,11 @@ public class TicTacToe {
         return true;
     }
 
-    // Instructions
+
     static void printInstructions() {
         
         System.out.println("      TIC TAC TOE 5 x 5");
        
     }
 }
+
